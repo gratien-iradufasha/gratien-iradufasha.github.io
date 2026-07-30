@@ -1,0 +1,92 @@
+/* ======== Global Styling ===========*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+/* ========= Body ========== */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #0e172a;
+    color: white;
+}
+/* ====== Header ======== */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px; 
+
+}
+/* =========== Navigation ========== */
+nav{
+    display: flex;
+    gap: 35px;
+}
+
+/* ==== Navigation Links ============ */
+
+nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+nav a:hover{
+    color: #38bdf8;
+}
+/* ========== Hero ============ */
+#hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 80px;
+    min-height: 90vh;
+    
+}
+
+/* ======== Hero Text ====== */
+.hero-text h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+.hero-text h2 {
+    font-size: 30px;
+    color: #38bdf8;
+    margin-bottom: 20px;
+}
+.hero-text p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.hero-text button {
+    background-color: #2563eb;
+    color: white;
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+.hero-text button:hover {
+    background-color: #1d4ed8;
+}
+/* ======= Hero Photo ======= */
+
+.hero-image img {
+    width: 350px;
+    height: 350px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
