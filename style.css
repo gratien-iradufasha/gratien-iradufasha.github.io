@@ -974,6 +974,19 @@ nav a:hover {
 
 }
 
+#about {
+    text-align:center;
+}
+
+
+#about .section-tag {
+    text-align:center;
+}
+
+
+#about h2 {
+    text-align:center;
+}
  /* ==========================
         GLOBAL CONTAINER
 ========================== */
@@ -1169,69 +1182,84 @@ footer{
 ========================== */
 
 
-#certifications {
+/* ==========================
+   CERTIFICATE HORIZONTAL SCROLL
+========================== */
 
-    padding:120px 0;
-
-}
-
-
-#certifications h2 {
-
-    text-align:center;
-
-    font-size:45px;
-
-    margin-bottom:20px;
-
-}
-
-
-
-#certifications .section-description {
-
-    text-align:center;
-
-    margin-bottom:50px;
-
-}
-
-
-
-/* Horizontal scrolling */
 
 .certificate-slider {
-
 
     display:flex;
 
-
     gap:30px;
-
 
     overflow-x:auto;
 
+    width:100%;
 
-    scroll-snap-type:x mandatory;
+    padding:20px 10px;
 
-
-    padding:20px;
-
+    scroll-behavior:smooth;
 
 }
 
 
+/* Each card size */
 
-/* Hide scrollbar */
+.certificate-card {
+
+    flex:0 0 300px;
+
+    height:280px;
+
+    background:#111c33;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+
+/* Hover effect */
+
+.certificate-card:hover {
+
+    transform:translateY(-8px);
+
+    border-color:#38bdf8;
+
+}
+
+
+/* Hide scrollbar but keep scrolling */
 
 .certificate-slider::-webkit-scrollbar {
 
-    display:none;
+    height:8px;
 
 }
 
 
-.certificate-slider {
+.certificate-slider::-webkit-scrollbar-thumb {
+
+    background:#2563eb;
+
+    border-radius:10px;
+
+}
 
    /* ==========================
    CERTIFICATION HORIZONTAL SCROLL
@@ -1427,6 +1455,29 @@ footer{
 
 
 }
+
+#certifications {
+    padding:120px 0;
+    text-align:center;
+}
+
+
+#certifications .section-tag {
+    text-align:center;
+}
+
+
+#certifications h2 {
+    text-align:center;
+}
+
+
+#certifications .section-description {
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 /* ==========================
         CONTACT SECTION
 ========================== */
