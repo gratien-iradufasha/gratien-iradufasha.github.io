@@ -105,7 +105,7 @@ nav a{
 
     text-decoration:none;
     
-    margin-left:-130px;
+    margin-left:-50px;
 
     
 
@@ -236,8 +236,8 @@ nav a:hover {
     justify-content:center;
     align-items:center;
     padding:80px;
-    gap: 300px;
-    min-height:90vh;
+    gap: clamp(30px, 5vw, 100px)
+   /* height:90vh; */
 
 }
 
@@ -629,116 +629,113 @@ nav a:hover {
 
     transform:translateY(-6px);
 
-}
-/* ====== Skills Section ======= */
-
-/* ================= Skills ================= */
+}/* ====== Skills Section ======= */
 
 #skills{
-
     padding:120px 80px;
-
     text-align:center;
-
 }
 
 .section-tag{
-
     color:#38bdf8;
-
     font-weight:bold;
-
     letter-spacing:2px;
-
     margin-bottom:15px;
-
 }
 
 #skills h2{
-
     font-size:45px;
-
     margin-bottom:20px;
-
 }
 
 .section-description{
-
     max-width:700px;
-
     margin:auto;
-
     color:#CBD5E1;
-
     margin-bottom:60px;
-
 }
 
 .skills-grid{
-
     display:grid;
-
     grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-
     gap:30px;
-
 }
+
+/* ===== Flip card setup ===== */
 
 .skill-card{
-
-    background:#1e293b;
-
-    padding:40px 20px;
-
-    border-radius:18px;
-
-    transition:.3s;
-
+    background:transparent;
+    height:200px;
+    perspective:1000px;
     cursor:pointer;
-    
-
 }
 
-.skill-card:hover{
-
-    transform:translateY(-10px);
-
-    background:#2563eb;
-
+.skill-card-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    text-align:center;
+    transition:transform .6s;
+    transform-style:preserve-3d;
 }
 
-.skill-card i{
+.skill-card:hover .skill-card-inner{
+    transform:rotateY(180deg);
+}
 
+.skill-card-front,
+.skill-card-back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden;
+    border-radius:18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    transition:background .3s;
+}
+
+/* Front face */
+.skill-card-front{
+    background:#1e293b;
+}
+
+.skill-card-front i{
     font-size:55px;
-
     color:#38bdf8;
-
     margin-bottom:20px;
-
+    transition:color .3s;
 }
 
-.skill-card:hover i{
-
-    color:white;
-
-}
-
-.skill-card h3{
-
+.skill-card-front h3{
     font-size:22px;
+}
 
+.skill-card:hover .skill-card-front{
+    background:#2563eb;
+}
+
+.skill-card:hover .skill-card-front i{
+    color:white;
+}
+
+/* Back face */
+.skill-card-back{
+    background:#2563eb;
+    transform:rotateY(180deg);
+}
+
+.skill-card-back p{
+    font-size:14px;
+    line-height:1.5;
+    color:#f1f5f9;
+    margin:0;
 }
 
 /* ================= Projects ================= */
-
-/* ===========================
-      PROJECTS SECTION
-=========================== */
-
-/* ==========================
-        PROJECTS SECTION
-========================== */
-
 
 #projects {
 
@@ -987,6 +984,10 @@ nav a:hover {
 #about h2 {
     text-align:center;
 }
+
+.about-content p{
+    text-align: justify;
+}
  /* ==========================
         GLOBAL CONTAINER
 ========================== */
@@ -1177,319 +1178,156 @@ footer{
 
     margin-top:15px;
 }
-/* ==========================
-   CERTIFICATION SLIDER
-========================== */
-
 
 /* ==========================
-   CERTIFICATE HORIZONTAL SCROLL
+   CERTIFICATIONS SECTION
 ========================== */
-
-
-.certificate-slider {
-
-    display:flex;
-
-    gap:30px;
-
-    overflow-x:auto;
-
-    width:100%;
-
-    padding:20px 10px;
-
-    scroll-behavior:smooth;
-
-}
-
-
-/* Each card size */
-
-.certificate-card {
-
-    flex:0 0 300px;
-
-    height:280px;
-
-    background:#111c33;
-
-    border-radius:12px;
-
-    border:1px solid rgba(255,255,255,0.08);
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:30px;
-
-}
-
-
-/* Hover effect */
-
-.certificate-card:hover {
-
-    transform:translateY(-8px);
-
-    border-color:#38bdf8;
-
-}
-
-
-/* Hide scrollbar but keep scrolling */
-
-.certificate-slider::-webkit-scrollbar {
-
-    height:8px;
-
-}
-
-
-.certificate-slider::-webkit-scrollbar-thumb {
-
-    background:#2563eb;
-
-    border-radius:10px;
-
-}
-
-   /* ==========================
-   CERTIFICATION HORIZONTAL SCROLL
-========================== */
-
-.certificate-slider {
-
-    display:flex;
-
-    gap:30px;
-
-    overflow-x:auto;
-
-    width:100%;
-
-    padding:20px 0;
-
-    scroll-behavior:smooth;
-
-}
-
-
-/* Prevent cards from shrinking */
-
-.certificate-card {
-
-    flex:0 0 350px;
-
-    height:320px;
-
-    background:#111c33;
-
-    border:1px solid rgba(255,255,255,0.08);
-
-    border-radius:12px;
-
-    padding:35px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-}
-
-
-/* Hide scrollbar */
-
-.certificate-slider::-webkit-scrollbar {
-
-    display:none;
-
-}
-
-.certificate-slider {
-
-    scrollbar-width:none;
-
-}
-
-}
-
-
-
-/* Certificate Card */
-
-
-.certificate-card {
-
-
-    min-width:350px;
-
-
-    height:300px;
-
-
-    background:#111c33;
-
-
-    border:1px solid rgba(255,255,255,.08);
-
-
-    border-radius:12px;
-
-
-    padding:35px;
-
-
-    display:flex;
-
-
-    flex-direction:column;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    text-align:center;
-
-
-    scroll-snap-align:center;
-
-
-    flex-shrink:0;
-
-
-}
-
-
-
-.certificate-card:hover {
-
-
-    border-color:#38bdf8;
-
-
-    transform:translateY(-8px);
-
-
-}
-
-
-
-/* Icon */
-
-
-.certificate-card i {
-
-
-    font-size:55px;
-
-
-    color:#38bdf8;
-
-
-    margin-bottom:20px;
-
-
-}
-
-
-
-.certificate-card h3 {
-
-
-    font-size:22px;
-
-
-    margin-bottom:10px;
-
-
-}
-
-
-
-.certificate-card p {
-
-
-    color:#CBD5E1;
-
-
-    margin-bottom:20px;
-
-
-}
-
-
-
-.certificate-card a {
-
-
-    background:#2563eb;
-
-
-    color:white;
-
-
-    text-decoration:none;
-
-
-    padding:10px 20px;
-
-
-    border-radius:6px;
-
-
-}
 
 #certifications {
-    padding:120px 0;
-    text-align:center;
+    padding: 120px 0;
+    text-align: center;
 }
 
-
-#certifications .section-tag {
-    text-align:center;
+#certifications .section-tag,
+#certifications h2,
+#certifications .section-description {
+    text-align: center;
 }
-
-
-#certifications h2 {
-    text-align:center;
-}
-
 
 #certifications .section-description {
-    text-align:center;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* ==========================
+   AUTO-SLIDING CAROUSEL
+========================== */
+
+/* Clips the track so cards outside the view are hidden */
+.certificate-slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+/* The moving track — width:max-content lets it grow as wide as its content */
+.certificate-slider {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    animation: slide-left 30s linear infinite;
+}
+
+/* Pause the animation when the user hovers so they can read/click */
+.certificate-slider:hover {
+    animation-play-state: paused;
+}
+
+/* Moves the track left by exactly half its width (= one full set of cards),
+   which is why the HTML needs the cards duplicated once — it creates a seamless loop */
+@keyframes slide-left {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* ==========================
+   CERTIFICATE CARD
+========================== */
+
+.certificate-card {
+    flex: 0 0 350px;
+    height: 300px;
+    background: #111c33;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-8px);
+    border-color: #38bdf8;
+}
+
+.certificate-card i {
+    font-size: 55px;
+    color: #38bdf8;
+    margin-bottom: 20px;
+}
+
+.certificate-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.certificate-card p {
+    color: #CBD5E1;
+    margin-bottom: 20px;
+}
+
+.certificate-card a {
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+}/* Contact items are now links, not divs — restore normal look */
+.contact-item {
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+    color:#CBD5E1;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.contact-item:hover {
+    color:#38bdf8;
+}
+
+.contact-item i {
+    color:#38bdf8;
+    font-size:22px;
+    transition:.3s;
+}
+
+.contact-item:hover i {
+    color:white;
+}
+
+/* Nicer placeholder color */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color:#64748b;
+    font-family:inherit;
+}
+
+/* Better focus state so users know a field is active */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline:none;
+    border-color:#38bdf8;
+    background:#0f1729;
+}
+.skill-card.flipped .skill-card-inner {
+    transform: rotateY(180deg);
+}
+nav a.active {
+    color: #38bdf8;
+}
 /* ==========================
         CONTACT SECTION
 ========================== */
 
-
 #contact {
-
     padding:120px 0;
-
 }
-
-
 
 #contact h2 {
 
@@ -1505,8 +1343,8 @@ footer{
 
 #contact .section-tag {
 
+ 
     text-align:center;
-
 }
 
 
@@ -1538,7 +1376,9 @@ footer{
 
 
 
+
 /* Left Side */
+
 
 
 .contact-info {
@@ -1588,7 +1428,12 @@ footer{
     margin-bottom:20px;
 
     color:#CBD5E1;
+    text-decoration:none;
+    transition:.3s;
+}
 
+.contact-item:hover {
+    color:#38bdf8;
 }
 
 
@@ -1599,9 +1444,12 @@ footer{
 
     font-size:22px;
 
+    transition:.3s;
 }
 
-
+.contact-item:hover i {
+    color:white;
+}
 
 /* Form */
 
@@ -1619,74 +1467,50 @@ footer{
 
 
 .contact-form input,
-.contact-form textarea {
 
+
+.contact-form textarea {
 
     background:#111c33;
 
-
     border:1px solid rgba(255,255,255,.1);
 
-
     padding:15px;
-
-
     color:white;
-
-
     border-radius:8px;
-
-
     font-size:16px;
-
+    font-family:inherit;
 }
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color:#64748b;
+    font-family:inherit;
+}
 
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline:none;
+    border-color:#38bdf8;
+    background:#0f1729;
+}
 
 .contact-form textarea {
-
     height:160px;
-
     resize:none;
-
 }
-
-
 
 .contact-form button {
-
-
     background:#2563eb;
-
-
     color:white;
-
-
     border:none;
-
-
     padding:15px;
-
-
     border-radius:8px;
-
-
     font-size:17px;
-
-
     cursor:pointer;
-
-
     transition:.3s;
-
 }
 
-
-
 .contact-form button:hover {
-
-
     background:#38bdf8;
-
-
 }
