@@ -9,28 +9,56 @@
    1. CONTACT FORM — opens the user's email app pre-filled
 ---------------------------------------------------------- */
 
+console.log('script.js is running');
+console.log('Found view-cert links:', document.querySelectorAll('.view-cert').length);
+
+document.querySelectorAll('.view-cert').forEach(link => {
+    link.addEventListener('click', function (e) {
+        console.log('Certificate link clicked!', this.dataset.img);
+        e.preventDefault();
+        const modal = document.getElementById('imgModal');
+        document.getElementById('modalImg').src = this.dataset.img;
+        modal.classList.add('open');
+    });
+});
 const contactForm = document.getElementById('contact-form');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-        // Stop the form from doing a normal page-reload submit
+    contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
-        // Grab what the user typed
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
 
-        // Build the email subject and body
-        const subject = `Portfolio Contact from ${name}`;
-        const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+        const formData = new FormData(contactForm);
 
-        // encodeURIComponent() makes spaces/line breaks/symbols safe inside a URL
-        const mailtoLink =
-            `mailto:gratien@tuta.io?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: formData
+            });
 
-        // Redirecting the browser to a mailto: link opens the user's default mail app
-        window.location.href = mailtoLink;
+            const result = await response.json();
+
+            if (result.success) {
+                submitBtn.textContent = 'Message Sent!';
+                contactForm.reset();
+            } else {
+                submitBtn.textContent = 'Something went wrong';
+                console.error(result);
+            }
+        } catch (error) {
+            submitBtn.textContent = 'Failed to send';
+            console.error(error);
+        }
+
+        setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }, 3000);
     });
 }
 
@@ -83,3 +111,60 @@ function highlightActiveSection() {
 }
 
 window.addEventListener('scroll', highlightActiveSection);
+
+document.querySelectorAll('.view-cert').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const modal = document.getElementById('imgModal');
+    document.getElementById('modalImg').src = this.dataset.img;
+    modal.classList.add('open');
+  });
+});
+
+function closeModal(e) {
+  if (e.target.id === 'imgModal' || e.target.className === 'modal-close') {
+    document.getElementById('imgModal').classList.remove('open');
+  }
+}
+
+// optional: close on Escape key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.getElementById('imgModal').classList.remove('open');
+  }
+});
+/* ----------------------------------------------------------
+   4. CERTIFICATE MODAL — open on click, close on X / outside / Escape
+---------------------------------------------------------- */
+
+const imgModal = document.getElementById('imgModal');
+const modalImg = document.getElementById('modalImg');
+const modalCloseBtn = document.querySelector('.modal-close');
+
+// Open modal when a certificate link is clicked
+document.querySelectorAll('.view-cert').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        modalImg.src = this.dataset.img;
+        imgModal.classList.add('open');
+    });
+});
+
+// Close modal when the "X" is clicked
+modalCloseBtn.addEventListener('click', function () {
+    imgModal.classList.remove('open');
+});
+
+// Close modal when clicking the dark background (but not the image itself)
+imgModal.addEventListener('click', function (e) {
+    if (e.target === imgModal) {
+        imgModal.classList.remove('open');
+    }
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        imgModal.classList.remove('open');
+    }
+});

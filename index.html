@@ -87,7 +87,7 @@
                     </a>
 
 
-                    <a href="Cv.pdf" download class="secondary-btn">
+                    <a href="Documents/Gratien_Iradufasha_CV.pdf" download class="secondary-btn">
                         <i class="fa-solid fa-download"></i>
 
                         Download CV
@@ -109,6 +109,9 @@
                     <a href="mailto:gratien@tuta.io">
                          <i class="fa-solid fa-envelope"></i>
                   </a>
+                  <a href="https://www.facebook.com/iradufasha.gratien" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
                   <a href="https://x.com/Gratien35434783" target="_blank">
                     <i class="fa-brands fa-x-twitter"></i>
                       </a>
@@ -159,7 +162,7 @@
 
             <div class="about-image">
 
-                <img src="Images/Me.jpeg" alt="Gratien Iradufasha">
+                <img src="Images/Coding.png" alt="Gratien Iradufasha">
 
             </div>
 
@@ -417,6 +420,7 @@
 
 
 </section>
+
 <!-- Projects Section -->
 
 <section id="projects">
@@ -460,15 +464,9 @@
 
                     <div class="project-links">
 
-                        <a href="#">
+                        <a href="https://github.com/mugisha-eric/Arduino-auto-bell">
                             <i class="fa-brands fa-github"></i>
                             GitHub
-                        </a>
-
-
-                        <a href="#">
-                            <i class="fa-solid fa-globe"></i>
-                            Live Demo
                         </a>
 
                     </div>
@@ -513,17 +511,10 @@
                     <div class="project-links">
 
 
-                        <a href="#">
+                        <a href="https://github.com/mugisha-eric/arduino-auto-lights">
                             <i class="fa-brands fa-github"></i>
                             GitHub
                         </a>
-
-
-                        <a href="#">
-                            <i class="fa-solid fa-globe"></i>
-                            Live Demo
-                        </a>
-
 
                     </div>
 
@@ -568,13 +559,6 @@
                             GitHub
                         </a>
 
-
-                        <a href="#">
-                            <i class="fa-solid fa-globe"></i>
-                            Live Demo
-                        </a>
-
-
                     </div>
 
 
@@ -594,7 +578,6 @@
 
        
 <!-- Certifications Section -->
-
 <section id="certifications">
 
     <div class="container">
@@ -613,82 +596,71 @@
                     <i class="fa-brands fa-microsoft"></i>
                     <h3>Microsoft Power Platform Fundamentals</h3>
                     <p>Microsoft</p>
-                    <a href="#">View Certificate</a>
+                    <a href="#" class="view-cert" data-img="Images/Microsoft Certification.png">View Certificate</a>
                 </div>
 
                 <div class="certificate-card">
                     <i class="fa-brands fa-aws"></i>
                     <h3>AWS Foundations Essentials</h3>
                     <p>AWS Skills and Certifications</p>
-                    <a href="#">View Certificate</a>
+                    <a href="#" class="view-cert" data-img="Images/AWS Starting.jpeg">View Certificate</a>
                 </div>
 
                 <div class="certificate-card">
                     <i class="fa-solid fa-brain"></i>
                     <h3>IBM AI Literacy</h3>
                     <p>IBM SkillsBuild</p>
-                    <a href="#">View Certificate</a>
+                    <a href="#" class="view-cert" data-img="Images/AILiteracy_Badge.jpg">View Certificate</a>
                 </div>
 
                 <div class="certificate-card">
                     <i class="fa-brands fa-aws"></i>
                     <h3>AWS Practitioner Essentials</h3>
                     <p>AWS Training and Certifications</p>
-                    <a href="#">View Certificate</a>
+                    <a href="#" class="view-cert" data-img="Images/AWS Cloud Practitioner.png">View Certificate</a>
                 </div>
 
-               <!-- <div class="certificate-card">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <h3>Cybersecurity Fundamentals</h3>
-                    <p>IBM SkillsBuild</p>
-                    <a href="#">View Certificate</a> 
-                </div> -->
-
-                <!-- ===== SET 2 (duplicate of set 1, required for the seamless loop) ===== -->
-                <div class="certificate-card" aria-hidden="true">
+                <!-- ===== SET 2 (duplicate, required for the seamless loop) ===== -->
+                <div class="certificate-card" inert>
                     <i class="fa-brands fa-microsoft"></i>
                     <h3>Microsoft Power Platform Fundamentals</h3>
                     <p>Microsoft</p>
-                    <a href="#">View Certificate</a>
+                    <a href="#" tabindex="-1">View Certificate</a>
                 </div>
 
-                <div class="certificate-card" aria-hidden="true">
+                <div class="certificate-card" inert>
                     <i class="fa-brands fa-aws"></i>
                     <h3>AWS Foundations Essentials</h3>
                     <p>AWS Skills and Certifications</p>
-                    <a href="#">View Certificate</a>
+                    <a href="#" tabindex="-1">View Certificate</a>
                 </div>
 
-                <div class="certificate-card" aria-hidden="true">
+                <div class="certificate-card" inert>
                     <i class="fa-solid fa-brain"></i>
                     <h3>IBM AI Literacy</h3>
                     <p>IBM SkillsBuild</p>
-                    <a href="#">View Certificate</a>
+                    <a href="#" tabindex="-1">View Certificate</a>
                 </div>
 
-                <div class="certificate-card" aria-hidden="true">
+                <div class="certificate-card" inert>
                     <i class="fa-brands fa-aws"></i>
                     <h3>AWS Practitioner Essentials</h3>
                     <p>AWS Training and Certifications</p>
-                    <a href="#">View Certificate</a>
-                </div>
-
-                <div class="certificate-card" aria-hidden="true">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <h3>Cybersecurity Fundamentals</h3>
-                    <p>IBM SkillsBuild</p>
-                    <a href="#">View Certificate</a>
+                    <a href="#" tabindex="-1">View Certificate</a>
                 </div>
 
             </div>
         </div>
 
-
     </div>
 
 </section>
 
-
+<!-- Certificate Image Modal (kept OUTSIDE the slider so it doesn't break the animation) -->
+<div id="imgModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img id="modalImg" class="modal-content" src="" alt="Certificate">
+</div>
     <!-- Contact Section -->
 <section id="contact">
 
@@ -734,17 +706,22 @@
             <!-- Contact Form -->
             <form class="contact-form" id="contact-form">
 
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" placeholder="Your Message" required></textarea>
+         <input type="hidden" name="access_key" value="8088d158-c4f2-401a-aec6-c5bed56c1dd4">
+          <input type="hidden" name="subject" value="New message from your portfolio site">
+         <input type="checkbox" name="botcheck" style="display:none">
 
-                <button type="submit">Send Message</button>
+         <input type="text" id="name" name="name" placeholder="Your Name" required>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+         <textarea id="message" name="message" placeholder="Your Message" required></textarea>
 
-            </form>
+         <button type="submit">Send Message</butto>
 
+    
+    
+        </form>
+    
         </div>
-
-    </div>
+</div>
 
 </section>
 </main>
@@ -754,7 +731,6 @@
     <div class="footer-container">
         <h3>Gratien Iradufasha</h3>
         <p>Software Engineering Student | Building meaningful solutions through technology.</p>
-        <p class="built">Built with using HTML, CSS & JavaScript</p>
         <p class="copyright">© 2026 Gratien Iradufasha. All rights reserved.</p>
     </div>
 </footer>
